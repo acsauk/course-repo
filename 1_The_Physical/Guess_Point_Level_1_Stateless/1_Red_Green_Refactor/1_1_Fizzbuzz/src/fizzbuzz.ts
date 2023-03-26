@@ -1,23 +1,19 @@
-const FizzBuzz = {
-    run: (number: number): string => {
-        if (modulousOf(number, 3) && modulousOf(number, 5)) {
-            return 'FizzBuzz'
-        }
-        
-        if (modulousOf(number, 5)) {
-            return 'Buzz'
-        }
-
-        if (modulousOf(number, 3)) {
-            return 'Fizz'
-        }
-
-        return number.toString()
+export function FizzBuzz(num: number): string {
+    if (modulousOf(num, 3) && modulousOf(num, 5)) {
+        return 'FizzBuzz'
     }
+    
+    if (modulousOf(num, 5)) {
+        return 'Buzz'
+    }
+
+    if (modulousOf(num, 3)) {
+        return 'Fizz'
+    }
+
+    return num.toString()
 }
 
-function modulousOf (number: number, modulous: number): boolean {
-    return number % modulous == 0
+export function modulousOf(num: number, modulous: number): boolean {
+    return num % modulous == 0
 }
-
-export default FizzBuzz
