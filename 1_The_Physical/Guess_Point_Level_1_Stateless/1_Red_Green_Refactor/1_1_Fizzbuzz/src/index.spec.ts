@@ -17,9 +17,16 @@ describe('fizzbuzz', () => {
     })
 
     it('multiple of 5 return Buzz', () => {
-        const tcs: number[] = [5,10,15]
+        const tcs: number[] = [5,10,20]
         tcs.forEach((n) => {
             expect(FizzBuzz.run(n)).toEqual('Buzz')
+        })
+    })
+
+    it('multiples of 3 and 5 return FizzBuzz', () => {
+        const tcs: number[] = [15, 30, 45]
+        tcs.forEach(n => {
+            expect(FizzBuzz.run(n)).toEqual('FizzBuzz')
         })
     })
 });
