@@ -1,5 +1,8 @@
 const FizzBuzz = {
-    run: () => {
+    run: (number: number) => {
+        if (number == 3) {
+            return 'Fizz'
+        }
         return 'test'
     }
 }
