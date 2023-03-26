@@ -7,6 +7,9 @@ describe('fizzbuzz', () => {
     })
 
     it('multiple of 3 return Fizz', () => {
-        expect(FizzBuzz.run(3)).toEqual('Fizz')
+        const tcs: number[] = [3,6,9] 
+        tcs.forEach((n) => {
+            expect(FizzBuzz.run(n)).toEqual('Fizz')
+        })
     })
 });
