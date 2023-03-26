@@ -12,4 +12,11 @@ describe('fizzbuzz', () => {
             expect(FizzBuzz.run(n)).toEqual('Fizz')
         })
     })
+
+    it('multiple of 5 return Buzz', () => {
+        const tcs: number[] = [5,10,15]
+        tcs.forEach((n) => {
+            expect(FizzBuzz.run(n)).toEqual('Buzz')
+        })
+    })
 });
