@@ -20,4 +20,12 @@ describe('palindrome checker', () => {
             expect(check(tc)).toEqual(false)
         }
     })
+
+    it ('can handle mixed case strings', () => {
+        let tcs: string[] = ['woW', 'Mom', 'taTtaRRattaT']
+        
+        for (let tc of tcs) {
+            expect(check(tc)).toEqual(true)
+        }
+    })
 })
