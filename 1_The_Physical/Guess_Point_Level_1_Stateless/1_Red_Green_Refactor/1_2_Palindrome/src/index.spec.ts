@@ -8,9 +8,7 @@ describe('palindrome checker', () => {
     it('knows which single words are palindromes', () => {
         let tcs: string[] = ['wow', 'mom', 'tattarrattat']
 
-        for (let tc of tcs) {
-            expect(check(tc)).toEqual(true)
-        }
+        assertWordsArePalindromes(tcs)
     })
 
     it('knows which single words are not palindromes', () => {
@@ -24,8 +22,12 @@ describe('palindrome checker', () => {
     it ('can handle mixed case strings', () => {
         let tcs: string[] = ['woW', 'Mom', 'taTtaRRattaT']
         
-        for (let tc of tcs) {
-            expect(check(tc)).toEqual(true)
-        }
+        assertWordsArePalindromes(tcs)
     })
 })
+
+function assertWordsArePalindromes(words: string[]) {
+    for (let word of words) {
+        expect(check(word)).toEqual(true)
+    }
+}
