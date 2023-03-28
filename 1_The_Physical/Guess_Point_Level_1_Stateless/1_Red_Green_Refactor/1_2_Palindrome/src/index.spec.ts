@@ -12,22 +12,32 @@ describe('palindrome checker', () => {
     })
 
     it('knows which single words are not palindromes', () => {
-        let tcs: string[] = ['amazing', 'mother', 'Crunch']
+        let tcs: string[] = ['amazing', 'mother', 'crunch']
 
-        for (let tc of tcs) {
-            expect(check(tc)).toEqual(false)
-        }
+        assertWordsAreNotPalindromes(tcs)
     })
 
-    it ('can handle mixed case strings', () => {
+    it ('can handle mixed case pallindromes', () => {
         let tcs: string[] = ['woW', 'Mom', 'taTtaRRattaT']
         
         assertWordsArePalindromes(tcs)
+    })
+
+    it ('can handle mixed case non-pallindromes', () => {
+        let tcs: string[] = ['AmaZing', 'MOTHEr', 'CRuNch']
+        
+        assertWordsAreNotPalindromes(tcs)
     })
 })
 
 function assertWordsArePalindromes(words: string[]) {
     for (let word of words) {
         expect(check(word)).toEqual(true)
+    }
+}
+
+function assertWordsAreNotPalindromes(words: string[]) {
+    for (let word of words) {
+        expect(check(word)).toEqual(false)
     }
 }
