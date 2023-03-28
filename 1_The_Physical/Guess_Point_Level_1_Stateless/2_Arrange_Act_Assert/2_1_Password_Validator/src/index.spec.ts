@@ -14,12 +14,17 @@ describe('password validator', () => {
         expect(validated).toHaveProperty('error')
     })
 
-    it('sets result to true and error to null on a valid password', () => {
+    it.each([
+        'aValidPassword1',
+        'passworD1',
+        '123456aB',
+    ])('sets result to true and error to null when password is %s', (password) => {
         const validator = new PasswordValidator()
 
-        const validated: ValidationResult = validator.validate('aValidPassword1')
+        const validated: ValidationResult = validator.validate(password)
         expect(validated.result).toEqual(true)
         expect(validated.error).toBeNull
     })
+
 })
 
