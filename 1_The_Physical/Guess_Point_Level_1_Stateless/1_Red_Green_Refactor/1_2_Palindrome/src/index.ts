@@ -1,3 +1,3 @@
-export function check(): boolean {
+export function check(word: string): boolean {
     return true
 }
