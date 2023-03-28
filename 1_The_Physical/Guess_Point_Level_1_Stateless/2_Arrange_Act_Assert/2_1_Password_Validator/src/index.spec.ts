@@ -26,5 +26,13 @@ describe('password validator', () => {
         expect(validated.error).toBeNull
     })
 
+    it('sets result to false and error to "too short" when password is less than 5 characters', () => {
+        const validator = new PasswordValidator()
+
+        const validated: ValidationResult = validator.validate('Abc1')
+        expect(validated.error).toEqual('too short')
+        expect(validated.result).toEqual(false)
+    })
+
 })
 

@@ -10,6 +10,12 @@ export class PasswordValidator {
             result: true,
             error: null
         }
+
+        if (password.length < 5) {
+            validated.result = false
+            validated.error = 'too short'
+        }
+        
         return validated
     }
 }
