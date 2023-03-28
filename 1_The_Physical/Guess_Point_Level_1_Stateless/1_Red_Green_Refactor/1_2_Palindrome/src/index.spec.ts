@@ -34,6 +34,12 @@ describe('palindrome checker', () => {
         
         assertWordsArePalindromes(tcs)
     })
+
+    it('knows which multiple-word strings are not palindromes', () => {
+        let tcs: string[] = ['A sentenace With words', 'and Another']
+        
+        assertWordsAreNotPalindromes(tcs)
+    })
 })
 
 function assertWordsArePalindromes(words: string[]) {
