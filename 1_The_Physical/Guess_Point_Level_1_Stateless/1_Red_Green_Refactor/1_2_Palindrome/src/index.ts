@@ -1,3 +1,6 @@
 export function check(word: string): boolean {
-    return true
+    const letters: string[] = [...word]
+    const reversedLetters: string[] = [...word].reverse()
+    
+    return reversedLetters.join() == letters.join()
 }

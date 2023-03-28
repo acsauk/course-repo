@@ -12,4 +12,12 @@ describe('palindrome checker', () => {
             expect(check(tc)).toEqual(true)
         }
     })
+
+    it('knows which single words are not palindromes', () => {
+        let tcs: string[] = ['amazing', 'mother', 'Crunch']
+
+        for (let tc of tcs) {
+            expect(check(tc)).toEqual(false)
+        }
+    })
 })
