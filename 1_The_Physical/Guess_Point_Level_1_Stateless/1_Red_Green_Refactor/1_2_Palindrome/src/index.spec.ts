@@ -17,16 +17,22 @@ describe('palindrome checker', () => {
         assertWordsAreNotPalindromes(tcs)
     })
 
-    it ('can handle mixed case pallindromes', () => {
+    it ('can handle mixed case palindromes', () => {
         let tcs: string[] = ['woW', 'Mom', 'taTtaRRattaT']
         
         assertWordsArePalindromes(tcs)
     })
 
-    it ('can handle mixed case non-pallindromes', () => {
+    it ('can handle mixed case non-palindromes', () => {
         let tcs: string[] = ['AmaZing', 'MOTHEr', 'CRuNch']
         
         assertWordsAreNotPalindromes(tcs)
+    })
+
+    it('knows which multiple-word strings are palindromes', () => {
+        let tcs: string[] = ['Was It A Rat I Saw', 'Never Odd or Even']
+        
+        assertWordsArePalindromes(tcs)
     })
 })
 
