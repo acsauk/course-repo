@@ -38,5 +38,16 @@ describe('password validator', () => {
         expect(validated.result).toEqual(false)
     })
 
+    it.each([
+        'Password123123123',
+        'anotherTooL0ngPswd',
+        'yepItsStillT000L00ng',
+    ])('sets result to false and error to "too short" when password is more than 15 characters (%s)', (password) => {
+        const validator = new PasswordValidator()
+
+        const validated: ValidationResult = validator.validate(password)
+        expect(validated.error).toEqual('too long')
+        expect(validated.result).toEqual(false)
+    })
 })
 

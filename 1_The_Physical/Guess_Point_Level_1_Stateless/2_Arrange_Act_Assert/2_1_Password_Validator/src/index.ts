@@ -15,7 +15,12 @@ export class PasswordValidator {
             validated.result = false
             validated.error = 'too short'
         }
-        
+
+        if (password.length > 15) {
+            validated.result = false
+            validated.error = 'too long'
+        }
+
         return validated
     }
 }
