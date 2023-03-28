@@ -1,4 +1,4 @@
-import validate from './index'
+import {PasswordValidator, ValidationResult} from "./index"
 
 // > Between 5 and 15 characters long
 // > Contains at least one digit
@@ -7,11 +7,19 @@ import validate from './index'
 
 describe('password validator', () => {
     it('returns an object with result and error keys', () => {
-        const validated: object = validate()
-        
-        expect(typeof validated).toBe('object')
+        const validator = new PasswordValidator()
+        const validated: ValidationResult = validator.validate('aValidPassword1')
+
         expect(validated).toHaveProperty('result')
         expect(validated).toHaveProperty('error')
+    })
+
+    it('sets result to true and error to null on a valid password', () => {
+        const validator = new PasswordValidator()
+
+        const validated: ValidationResult = validator.validate('aValidPassword1')
+        expect(validated.result).toEqual(true)
+        expect(validated.error).toBeNull
     })
 })
 
