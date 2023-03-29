@@ -23,7 +23,7 @@ describe('password validator', () => {
         const validated: ValidationResult = validator.validate(password)
 
         expect(validated.result).toEqual(true)
-        expect(validated.error).toBeNull
+        expect(validated.error).toEqual('')
     })
 
     it.each([
@@ -33,7 +33,7 @@ describe('password validator', () => {
     ])('sets result to false and error to "too short" when password is less than 5 characters (%s)', (password) => {
         const validated: ValidationResult = validator.validate(password)
 
-        expect(validated.error).toEqual('too short')
+        expect(validated.error).toEqual('Your password is not valid:\n- too short')
         expect(validated.result).toEqual(false)
     })
 
@@ -44,7 +44,7 @@ describe('password validator', () => {
     ])('sets result to false and error to "too short" when password is more than 15 characters (%s)', (password) => {
         const validated: ValidationResult = validator.validate(password)
 
-        expect(validated.error).toEqual('too long')
+        expect(validated.error).toEqual('Your password is not valid:\n- too long')
         expect(validated.result).toEqual(false)
     })
 
@@ -55,7 +55,7 @@ describe('password validator', () => {
     ])('sets result to false and error to "needs a digit" when password does not contain a digit (%s)',(password) => {
         const validated: ValidationResult = validator.validate(password)
 
-        expect(validated.error).toEqual('needs a digit')
+        expect(validated.error).toEqual('Your password is not valid:\n- needs a digit')
         expect(validated.result).toEqual(false)
     })
 
@@ -66,7 +66,18 @@ describe('password validator', () => {
     ])('sets result to false and error to "needs an uppercase character" when password does not contain an upper case character (%s)',(password) => {
         const validated: ValidationResult = validator.validate(password)
         
-        expect(validated.error).toEqual('needs an uppercase character')
+        expect(validated.error).toEqual('Your password is not valid:\n- needs an uppercase character')
+        expect(validated.result).toEqual(false)
+    })
+
+    it.each([
+        {password: 'a', error: 'Your password is not valid:\n- too short\n- needs a digit\n- needs an uppercase character'},
+        {password: 'aaaaaaaaaaaaaaaa', error: 'Your password is not valid:\n- too long\n- needs a digit\n- needs an uppercase character'},
+        {password: 'aaaaaaaaaaaaaaa', error: 'Your password is not valid:\n- needs a digit\n- needs an uppercase character'},
+    ])('multiple errors are included in validated.error (%s)',({password, error}) => {
+        const validated: ValidationResult = validator.validate(password)
+        
+        expect(validated.error).toEqual(error)
         expect(validated.result).toEqual(false)
     })
 })
