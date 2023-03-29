@@ -49,5 +49,13 @@ describe('password validator', () => {
         expect(validated.error).toEqual('too long')
         expect(validated.result).toEqual(false)
     })
+
+    it.each(['abcdefG', 'ABCDEFG', 'abcdEFG'])('sets result to false and error to "needs a digit" when password does not contain a digit (%s)',(password) => {
+        const validator = new PasswordValidator()
+
+        const validated: ValidationResult = validator.validate(password)
+        expect(validated.error).toEqual('needs a digit')
+        expect(validated.result).toEqual(false)
+    })
 })
 

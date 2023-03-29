@@ -21,6 +21,11 @@ export class PasswordValidator {
             validated.error = 'too long'
         }
 
+        if (!/\d/.test(password)) {
+            validated.result = false
+            validated.error = 'needs a digit'
+        }
+
         return validated
     }
 }
