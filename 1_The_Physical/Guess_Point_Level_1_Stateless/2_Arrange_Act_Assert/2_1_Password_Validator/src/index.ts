@@ -26,6 +26,11 @@ export class PasswordValidator {
             validated.error = 'needs a digit'
         }
 
+        if (!/[A-Z]/.test(password)) {
+            validated.result = false
+            validated.error = 'needs an uppercase character'
+        }
+
         return validated
     }
 }
