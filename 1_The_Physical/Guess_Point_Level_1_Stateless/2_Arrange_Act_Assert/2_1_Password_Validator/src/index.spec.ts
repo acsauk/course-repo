@@ -48,14 +48,22 @@ describe('password validator', () => {
         expect(validated.result).toEqual(false)
     })
 
-    it.each(['abcdefG', 'ABCDEFG', 'abcdEFG'])('sets result to false and error to "needs a digit" when password does not contain a digit (%s)',(password) => {
+    it.each([
+        'abcdefG',
+        'ABCDEFG',
+        'abcdEFG'
+    ])('sets result to false and error to "needs a digit" when password does not contain a digit (%s)',(password) => {
         const validated: ValidationResult = validator.validate(password)
 
         expect(validated.error).toEqual('needs a digit')
         expect(validated.result).toEqual(false)
     })
 
-    it.each(['abcdef1', '1234567', 'ab12cd45'])('sets result to false and error to "needs an uppercase character" when password does not contain an upper case character (%s)',(password) => {
+    it.each([
+        'abcdef1',
+        '1234567',
+        'ab12cd45'
+    ])('sets result to false and error to "needs an uppercase character" when password does not contain an upper case character (%s)',(password) => {
         const validated: ValidationResult = validator.validate(password)
         
         expect(validated.error).toEqual('needs an uppercase character')
