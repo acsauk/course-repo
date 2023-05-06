@@ -1,7 +1,7 @@
 export function calculateStats(values: number[]): Result {
     const result: Result = <Result>{}
 
-    values = values.sort()
+    values = values.sort((v1, v2) => {return v1 - v2})
     result.minimumVal = values[0]
     result.maximumVal = values[values.length - 1]
     result.elementCount = values.length
