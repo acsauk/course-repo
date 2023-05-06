@@ -21,4 +21,10 @@ describe('stats calculator', () => {
 
         expect(result.maximumVal).toEqual(10)
     })
+
+    it('can calculate the count of elements passed in', () => {
+        let result: Result = calculateStats([1, 10])
+
+        expect(result.elementCount).toEqual(2)
+    })
 })
