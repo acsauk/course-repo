@@ -4,6 +4,7 @@ describe('stats calculator', () => {
 
     it.each([
         {values: [0], min: 0, max: 0, elCount: 1, ave: 0.0},
+        {values: [2, 4, 21, -8, 53, 40], min: -8, max: 53, elCount: 6, ave: 18.666666666667},
     ])('returns a Result object with minimumVal, maximumVal, elementCount and average props when passed array of ints', ({ values, min, max, elCount, ave }) => {
         let result: Result = calculateStats(values)
 
