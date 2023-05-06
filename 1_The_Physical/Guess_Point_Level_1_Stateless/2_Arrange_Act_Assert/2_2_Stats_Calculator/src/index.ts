@@ -9,6 +9,7 @@ export function calculateStats(values: number[]): Result {
     values = values.sort()
     result.minimumVal = values[0]
     result.maximumVal = values[values.length - 1]
+    result.elementCount = values.length
     
     return result
 }
