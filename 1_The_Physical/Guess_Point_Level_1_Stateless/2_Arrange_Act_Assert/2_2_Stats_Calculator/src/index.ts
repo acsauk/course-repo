@@ -10,7 +10,7 @@ export function calculateStats(values: number[]): Result {
     result.minimumVal = values[0]
     result.maximumVal = values[values.length - 1]
     result.elementCount = values.length
-    result.average = sumArray(values) / result.elementCount
+    result.average = Number((sumArray(values) / result.elementCount).toFixed(12))
     
     return result
 }
