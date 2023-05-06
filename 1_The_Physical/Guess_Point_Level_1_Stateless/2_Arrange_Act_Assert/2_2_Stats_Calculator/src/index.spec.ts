@@ -27,4 +27,11 @@ describe('stats calculator', () => {
 
         expect(result.elementCount).toEqual(2)
     })
+
+    it('can calculate the average (assuming mean) of the values passed in', () => {
+        let result: Result = calculateStats([1, 10])
+
+        expect(result.average).toEqual(5.5)
+    })
+    
 })
