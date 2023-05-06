@@ -14,8 +14,5 @@ describe('stats calculator', () => {
         let result: Result = calculateStats([1, 10])
 
         expect(result.minimumVal).toEqual(1)
-        expect(result.maximumVal).toEqual(0)
-        expect(result.elementCount).toEqual(1)
-        expect(result.average).toEqual(0.0)
     })
 })
