@@ -1,13 +1,16 @@
 import { calculateStats, Result } from "./index"
 
 describe('stats calculator', () => {
-    it('returns a Result object with minimumVal, maximumVal, elementCount and average props', () => {
-        let result: Result = calculateStats([0])
 
-        expect(result.minimumVal).toEqual(0)
-        expect(result.maximumVal).toEqual(0)
-        expect(result.elementCount).toEqual(1)
-        expect(result.average).toEqual(0.0)
+    it.each([
+        {values: [0], min: 0, max: 0, elCount: 1, ave: 0.0},
+    ])('returns a Result object with minimumVal, maximumVal, elementCount and average props when passed array of ints', ({ values, min, max, elCount, ave }) => {
+        let result: Result = calculateStats(values)
+
+        expect(result.minimumVal).toEqual(min)
+        expect(result.maximumVal).toEqual(max)
+        expect(result.elementCount).toEqual(elCount)
+        expect(result.average).toEqual(ave)
     })
 
     it('can calculate the minimum value', () => {
