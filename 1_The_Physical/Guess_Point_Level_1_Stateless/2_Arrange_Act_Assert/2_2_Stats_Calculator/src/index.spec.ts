@@ -37,5 +37,4 @@ describe('stats calculator', () => {
 
         expect(result.average).toEqual(5.5)
     })
-    
 })
