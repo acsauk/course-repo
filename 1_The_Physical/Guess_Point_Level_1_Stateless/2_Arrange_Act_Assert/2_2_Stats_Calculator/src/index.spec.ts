@@ -15,4 +15,10 @@ describe('stats calculator', () => {
 
         expect(result.minimumVal).toEqual(1)
     })
+
+    it('can calculate the maximum value', () => {
+        let result: Result = calculateStats([1, 10])
+
+        expect(result.maximumVal).toEqual(10)
+    })
 })
