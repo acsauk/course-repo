@@ -10,7 +10,7 @@ export function calculateStats(values: number[]): Result {
     result.minimumVal = values[0]
     result.maximumVal = values[values.length - 1]
     result.elementCount = values.length
-    result.average = (values.reduce((partialSum, value) => partialSum + value, 0)) / result.elementCount
+    result.average = sumArray(values) / result.elementCount
     
     return result
 }
@@ -20,4 +20,8 @@ export type Result = {
     maximumVal: number
     elementCount: number
     average: number
+}
+
+function sumArray(values: number[]): number {
+    return values.reduce((partialSum, value) => partialSum + value, 0)
 }
