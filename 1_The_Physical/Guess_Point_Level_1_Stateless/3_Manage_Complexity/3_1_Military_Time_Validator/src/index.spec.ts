@@ -1,8 +1,12 @@
 import { ValidateTimeRange } from "./index"
 
 describe('military time validator', () => {
-    it('should return true for 01:12 - 14:32', () => {
-        expect(ValidateTimeRange('01:12 - 14:32')).toBeTruthy()
+    it.each([
+        '01:12 - 14:32',
+        '22:00 - 23:12',
+        '00:00 - 23:59',
+    ])('should return true for valid military time ranges', (timeRange) => {
+        expect(ValidateTimeRange(timeRange)).toBeTruthy()
     })
 
     it.each([
