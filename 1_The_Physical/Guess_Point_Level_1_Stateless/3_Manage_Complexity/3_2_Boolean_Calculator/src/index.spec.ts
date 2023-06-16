@@ -10,4 +10,13 @@ describe('boolean calculator', () => {
             expect(Calculator.calculate('FALSE')).toBeFalsy()
         })
     })
+
+    describe('NOT operator', () => {
+        it.each([
+            ['NOT TRUE', false],
+            ['NOT FALSE', true],
+        ])('knows that %s equals %s', (expression, wanted) => {
+            expect(Calculator.calculate(expression)).toEqual(wanted)
+        })
+    })
 })
