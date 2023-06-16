@@ -5,10 +5,6 @@ describe('military time validator', () => {
         expect(ValidateTimeRange('01:12 - 14:32')).toBeTruthy()
     })
 
-    it('should return false for 25:00 - 12:23', () => {
-        expect(ValidateTimeRange('25:00 - 12:23')).toBeFalsy()
-    })
-
     it.each([
         '25:00 - 12:23',
         '-10:00 - 12:23',
