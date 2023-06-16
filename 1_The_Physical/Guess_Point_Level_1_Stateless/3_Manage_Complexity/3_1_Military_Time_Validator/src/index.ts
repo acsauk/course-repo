@@ -9,5 +9,9 @@ export function ValidateTimeRange(timeRange: string) {
         return false
     }
 
+    if (parseFloat(times[1]) < parseFloat(times[0])) {
+        return false
+    }
+
     return true
 }
