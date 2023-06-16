@@ -20,4 +20,12 @@ describe('military time validator', () => {
     ])('should return false if the second time in the range is not a valid military time', (timeRange) => {
         expect(ValidateTimeRange(timeRange)).toBeFalsy()
     })
+
+    it.each([
+        '00:01 - 00:00',
+        '20:05 - 20:04',
+        '23:59 - 00:00',
+    ])('should return false if the first time in the range is after the second time in the range', (timeRange) => {
+        expect(ValidateTimeRange(timeRange)).toBeFalsy()
+    })
 })
