@@ -1,8 +1,7 @@
 import { ValidateTimeRange } from "./index"
 
 describe('military time validator', () => {
-    it('should return true for 00:00 - 00:01', () => {
-        expect(ValidateTimeRange('00:00 - 00:01')).toBeTruthy()
+    it('should return true for 01:12 - 14:32', () => {
+        expect(ValidateTimeRange('01:12 - 14:32')).toBeTruthy()
     })
-
 })
