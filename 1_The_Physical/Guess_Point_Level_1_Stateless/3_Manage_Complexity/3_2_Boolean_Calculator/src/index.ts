@@ -1,5 +1,5 @@
 export class Calculator {
     static calculate(expression: string) {
-        return true
+        return expression == 'TRUE'
     }
 }
