@@ -19,4 +19,14 @@ describe('boolean calculator', () => {
             expect(Calculator.calculate(expression)).toEqual(wanted)
         })
     })
+
+    describe('AND operator', () => {
+        it.each([
+            ['TRUE AND FALSE', false],
+            ['TRUE AND TRUE', true],
+            ['FALSE AND TRUE', false],
+        ])('knows that %s equals %s', (expression, wanted) => {
+            expect(Calculator.calculate(expression)).toEqual(wanted)
+        })
+    })
 })
